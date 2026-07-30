@@ -19,7 +19,7 @@ body {
 .app-header {
   background: linear-gradient(135deg, #ff6b35, #f7c531);
   color: white;
-  padding: 1.5rem;
+  padding: 1.25rem 1rem 1rem;
   text-align: center;
 }
 
@@ -33,6 +33,43 @@ body {
   font-size: 1rem;
 }
 
+.xp-bar-container {
+  margin-top: 0.75rem;
+}
+
+.xp-text {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.xp-text.small {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin-top: 0.25rem;
+}
+
+.title-badge {
+  background: rgba(255,255,255,0.25);
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  margin-left: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.xp-bar {
+  height: 0.6rem;
+  background: rgba(255,255,255,0.35);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.xp-fill {
+  height: 100%;
+  background: white;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
 .app-nav {
   display: flex;
   justify-content: center;
@@ -40,10 +77,11 @@ body {
   padding: 1rem;
   background: white;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  flex-wrap: wrap;
 }
 
 .app-nav button {
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.25rem;
   border: none;
   border-radius: 999px;
   background: #f0f0f0;
@@ -72,7 +110,7 @@ body {
 }
 
 .map {
-  height: calc(100vh - 200px);
+  height: calc(100vh - 240px);
   width: 100%;
   border-radius: 1rem;
   overflow: hidden;
@@ -107,6 +145,16 @@ body {
   margin-top: 0.25rem;
 }
 
+.xp-badge {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.35rem;
+  display: inline-block;
+  background: #fff3e0;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+}
+
 .delete-btn {
   background: #ff4444;
   color: white;
@@ -131,7 +179,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 240px);
 }
 
 .wheel {
@@ -191,11 +239,61 @@ body {
   text-align: center;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   animation: popIn 0.5s ease;
+  width: 90%;
+  max-width: 420px;
 }
 
 .sidequest-result h2 {
   color: #ff6b35;
   margin-bottom: 0.5rem;
+}
+
+.tiktok-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: #ff0050;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid #ff0050;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+}
+
+.verify-btn {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.35);
+}
+
+.verify-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(78, 205, 196, 0.5);
+}
+
+.verify-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.verify-form {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.verify-form input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  font-size: 1rem;
 }
 
 @keyframes popIn {
@@ -207,6 +305,56 @@ body {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+.add-quest-container {
+  max-width: 520px;
+  margin: 0 auto;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.add-quest-container h2 {
+  margin-bottom: 0.5rem;
+  color: #ff6b35;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.quest-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.quest-form input,
+.quest-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.quest-form button {
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #ff6b35, #f7c531);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.quest-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .modal-overlay {
@@ -296,6 +444,13 @@ body {
     font-size: 1.75rem;
   }
   .map {
-    height: calc(100vh - 180px);
+    height: calc(100vh - 260px);
+  }
+  .nav-buttons {
+    gap: 0.4rem;
+  }
+  .app-nav button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
   }
 }

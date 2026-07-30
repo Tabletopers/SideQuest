@@ -1,0 +1,17 @@
+services:
+  sidequest:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sidequest-app
+    ports:
+      - "3000:3001"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=3001
+    restart: unless-stopped
+    volumes:
+      - sidequest-data:/app/backend
+
+volumes:
+  sidequest-data:
