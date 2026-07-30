@@ -1,0 +1,14 @@
+node_modules
+dist
+.git
+.gitignore
+README.md
+.env
+.nyc_output
+coverage
+.nyc_output
+*.log
+.DS_Store
+sidequest.db
+sidequest.db-shm
+sidequest.db-wal
